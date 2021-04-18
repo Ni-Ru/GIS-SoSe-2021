@@ -1,0 +1,239 @@
+*{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body{
+    min-width: fit-content;
+    background-image: url(bg.png);
+}
+
+main{
+    max-width: 800px;
+    margin:auto;
+}
+
+nav{
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    right:100px;
+    padding:10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+nav a{
+    padding: 10px;
+    color: white;
+    text-decoration:none;  
+}
+
+nav .aktuell{
+    color: tomato;
+}
+
+nav a:hover{
+    background-color: white;
+    color: black;
+}
+
+nav a:active{
+    background-color: turquoise;
+}
+
+.header{  
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+    top: 0;
+    width: 804px;
+    padding: 50px 0px 100px 0px;
+    border-top: none;
+    border-bottom-left-radius: 1000px;
+    border-bottom-right-radius: 1000px;
+    background-color: tomato;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+h2{
+    color: tomato;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+input, textarea{
+    background-color: rgb(179, 179, 179);
+    color: white;
+    border: none;
+    margin:5px;
+    padding: 5px;
+}
+
+::placeholder{
+    color: white;
+}
+
+#text{
+    height: 50px;
+}
+
+#cap{
+    color: rgb(151, 151, 151);
+    margin: 10px 10px 10px 5px;
+}
+
+.sitebody{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border:tomato 2px solid;
+    width: 800px;
+    height:max-content;
+}
+
+.abschnitt{
+    margin: 20px;
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pics{
+    object-fit:cover;
+    padding: 10px;
+    border-top: solid black;
+    border-bottom: solid black;
+}
+
+
+
+
+.nav2{
+    margin-right:20px;
+    height: 100px;
+    width: 100px;
+}
+
+.header div:first-of-type{
+    display: flex;
+    margin-top:20px;
+}
+
+.social:hover{
+    opacity: 0.5;
+}
+
+#me{
+    align-self: center;
+    width: 200px;
+    height: 270px;
+    border-radius: 50px;
+}
+
+#vid{
+    border-top: solid black;
+    padding:10px;
+}
+
+#audio{
+    border-top: solid black;
+    padding:10px;
+    width: 750px; 
+}
+
+.abschnitt h3 + img{
+    animation-duration: 3s;
+    animation-name: blendin;
+}
+
+.abschnitt img[alt="truhe"]{
+ animation-duration: 6s;
+ animation-name: blendin;
+}
+
+.abschnitt img[alt="truhe"] + img{
+    animation-duration: 9s;
+    animation-name: blendin;
+}
+
+.sitebody>#me{
+    animation-duration:5s;
+    animation-name: blendin;
+}
+
+
+@keyframes blendin{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+
+
+@media screen and (max-width: 1024px)  {
+    nav{
+        display: flex;
+        flex-direction: column;
+        top: 100px;
+        right:0px;
+        padding:10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+    }   
+
+    
+}
+@media screen and (max-width: 600px) {
+    
+    .sitebody{
+        border-left: 0;
+        border-right: 0;
+    }
+    
+    .header{  
+        min-width: fit-content;
+        padding: 50px 0px 50px 0px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .header div:first-of-type{
+        display: flex;
+        flex-direction: column;
+        margin-top:20px;
+    }
+
+    .header img{
+        margin-top:20px;
+    }
+
+    
+
+    input, textarea{
+        width: 95%;
+        height: 50px;
+        margin: 5px auto;
+    }
+
+    #text{
+        height: 100px;
+    }
+
+    nav a{
+        padding: 20px;
+        color: white;
+        text-decoration:none;  
+    }
+
+}
+
+
+
