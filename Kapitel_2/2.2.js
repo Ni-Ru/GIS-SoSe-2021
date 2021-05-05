@@ -171,7 +171,7 @@ var Aufgabe3;
     function createRect(anzahl) {
         let manyrecs = [];
         for (let i = 0; i <= anzahl; i++) {
-            let rec = { xPos: Math.floor(Math.random() * canvas.width), yPos: Math.floor(Math.random() * canvas.height), recWidth: Math.floor(Math.random() * canvas.width) + 1, recHeight: Math.floor(Math.random() * canvas.height) + 1 };
+            let rec = { xPos: Math.floor(Math.random() * canvas2.width), yPos: Math.floor(Math.random() * canvas2.height), recWidth: Math.floor(Math.random() * canvas2.width) + 1, recHeight: Math.floor(Math.random() * canvas2.height) + 1 };
             manyrecs.push(rec);
         }
         return manyrecs;
