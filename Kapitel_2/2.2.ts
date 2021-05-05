@@ -1,19 +1,18 @@
 namespace Aufgabe1 {
-    let zahlen: number[] = [3, 7, 1, 4, 73, 3];
-    console.log(min(zahlen));
-    let evenNumber: number = 50;
+    console.log(min(3, 7, 1, 4, 73, 3));
+    let evenNumber: number = -51;
     let unevenNumber: number = 75;
     console.log(isEven(evenNumber))
     console.log(isEven(unevenNumber))
 
     //a)
-    function min(numberArray: number[]): number {
+    function min(...number: number[]): number {
 
 
-        let minimum: number = numberArray[0];  //Array = beliebige Anzahl an zahlenwerten die übergeben werden
-        for (let i: number = 1; i < numberArray.length; i++) {
-            if (numberArray[i] < minimum) {
-                minimum = numberArray[i];
+        let minimum: number = number[0];  //Array = beliebige Anzahl an zahlenwerten die übergeben werden
+        for (let i: number = 1; i < number.length; i++) {
+            if (number[i] < minimum) {
+                minimum = number[i];
             }
         }
         return minimum;
@@ -21,16 +20,18 @@ namespace Aufgabe1 {
     }
 
     //b
-    function isEven(number: number): boolean {
+    function isEven(n: number): boolean {
         let even: boolean;
-        if (number == 0) {
+        if (n < 0) {
+            n *= -1;
+        }
+        if (n == 0) {
             even = true;
-        } else if (number == 1) {
+        } else if (n == 1) {
             even = false;
         } else {
-            //X (im Fall number - 1) -> number--;
-            return isEven(number - 2);  //Falls n > 1 ist, so wird n - 2 gerechnet, bis n = 1 oder = 0 ist.
-            //wird allerdings n - 1 gerechnet so wird n - 1 gerechnet bis n = 1 ist. Der Fall n = 0 kann hiermit garnicht erfolgen außer man zieht an der mit //X markierten stelle nochmal 1 von n ab 
+            return isEven(n - 2);  //Falls n > 1 ist, so wird n - 2 gerechnet, bis n = 1 oder = 0 ist. Falls n am ende = 0 ist, so ist n gerade. Falls es am ende 1 ist, so ist n ungerade 
+            //Falls allerding 1 statt 2 abgezogen wird, so wird die Funktion so oft wiederholt, bis n = 1 ist. Der Fall n=0 kann in diesem Fall nicht eintreten  
         }
         return even;
 
@@ -61,10 +62,9 @@ namespace Aufgabe1 {
         return info;
     }
 
-    console.log(showInfo(studiArray[0]));
-    console.log(showInfo(studiArray[1]));
-    console.log(showInfo(studiArray[2]));
-    console.log(showInfo(studiArray[3]));
+    for (let iStudi: number = 0; iStudi < studiArray.length; iStudi++) {
+        console.log(showInfo(studiArray[iStudi]));
+    }
 }
 
 namespace Aufgabe2 {
@@ -87,22 +87,21 @@ namespace Aufgabe2 {
     //a
     function backwards(numberArray: number[]): number[] {
 
-        let backwards: number[] = [numberArray[numberArray.length - 1]];
-        for (let i: number = numberArray.length - 2; i >= 0; i--) {
-            backwards.push(numberArray[i]);
+        let backwards: number[] = [];
+        for (let i: number = 0; i < numberArray.length; i++) {
+            backwards[numberArray.length - 1 - i] = numberArray[i];
         }
         return backwards;
     }
 
     //b
-    function join(existingArray: number[], joiningArray: number[]): number[] {
-        let addedArrays: number[][] = [existingArray, joiningArray]; // die beiden Array werden in ein Array aus Arrays zusammengefügt
+    function join(...manyArrays: number[][]): number[] {
         let forgedArray: number[] = [0];
         let index: number = 0;
 
-        for (let addArrays: number = 0; addArrays < addedArrays.length; addArrays++) {  //addArray gibt den Array an der von addedArrays genommen wird 
-            for (let addElements: number = 0; addElements < addedArrays[addArrays].length; addElements++) { //addElement gibt dass Element aus dem (von addArray bestimmten) Array an welches genommen wird.
-                forgedArray[index] = addedArrays[addArrays][addElements]; //an die "index" Stelle von forgedArray kommt das "addElement" Element aus dem "addArray" Array von addedArrays
+        for (let addArrays: number = 0; addArrays < manyArrays.length; addArrays++) {  //addArray gibt den Array an der von addedArrays genommen wird 
+            for (let addElements: number = 0; addElements < manyArrays[addArrays].length; addElements++) { //addElement gibt dass Element aus dem (von addArray bestimmten) Array an welches genommen wird.
+                forgedArray[index] = manyArrays[addArrays][addElements]; //an die "index" Stelle von forgedArray kommt das "addElement" Element aus dem "addArray" Array von addedArrays
                 index++;
             }
         }
@@ -126,7 +125,7 @@ namespace Aufgabe2 {
         if (index2 > splittingArray.length - 1) {
             index2 = splittingArray.length - 1;
         }
-        let arraySlice: number[] = [splittingArray[index1]];
+        let arraySlice: number[] = [];
 
         for (let splitter: number = index1 + 1; splitter <= index2; splitter++) {
             arraySlice.push(splittingArray[splitter]);
@@ -139,64 +138,70 @@ namespace Aufgabe2 {
 namespace Aufgabe3 {
     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas");
     let context: CanvasRenderingContext2D = canvas.getContext("2d");
-    /*
-        //a)
-    
-        //Boden
-        context.fillStyle = "green";
-        context.fillRect(0,canvas.height-100,canvas.width,100);
-        //Himmel
-        context.fillStyle = "blue";
-        context.fillRect(0,0,canvas.width,300);
-        //Wolke1
-        context.beginPath(); 
-        context.arc(50, 100, 20, Math.PI * 0.5, Math.PI * 1.5);
-        context.arc(100, 100, 20, Math.PI * 1.5, Math.PI * 0.5);
-        context.arc(75,80,20, Math.PI*1.0,0);
-        context.rect(50,90,50,30);
-        context.stroke();
-        context.fillStyle = "white";
-        context.fill();
-        //Wolke2
-        context.beginPath(); 
-        context.arc(50 + 400, 100 + 40, 20, Math.PI * 0.5, Math.PI * 1.5);
-        context.arc(100 + 400, 100 + 40, 20, Math.PI * 1.5, Math.PI * 0.5);
-        context.arc(75+400,80 + 40,20, Math.PI*1.0,0);
-        context.rect(50 + 400,90 + 40,50,30);
-        context.stroke();
-        context.fillStyle = "white";
-        context.fill();
-    
-        //haus Wand
-        context.fillRect(100,150,200,150);
-    
-        //Dach
-        context.beginPath();
-        context.moveTo(100,150);
-        context.lineTo(300,150);
-        context.lineTo(200,50);
-        context.closePath();
-        context.stroke();
-        context.fillStyle = "red";
-        context.fill();
-    
-        //Baumstamm
-        context.fillStyle = "brown";
-        context.fillRect(350,180,20,150);
-        //Tür
-        context.fillRect(120,220,40,80);
-        //Fenster
-        context.fillStyle = "blue";
-        context.fillRect(200,220,40,40);
-    
-        //Baumkrone
-        context.beginPath(); 
-        context.arc(360,180,50,0,Math.PI*2)
-        context.stroke();
-        context.fillStyle = "green";
-        context.fill();
-    */
+
+    //a)
+
+    //Boden
+    context.fillStyle = "green";
+    context.fillRect(0, canvas.height - 100, canvas.width, 100);
+    //Himmel
+    context.fillStyle = "blue";
+    context.fillRect(0, 0, canvas.width, 300);
+    //Wolke1
+    context.beginPath();
+    context.arc(50, 100, 20, Math.PI * 0.5, Math.PI * 1.5);
+    context.arc(100, 100, 20, Math.PI * 1.5, Math.PI * 0.5);
+    context.arc(75, 80, 20, Math.PI * 1.0, 0);
+    context.rect(50, 90, 50, 30);
+    context.stroke();
+    context.fillStyle = "white";
+    context.fill();
+    //Wolke2
+    context.beginPath();
+    context.arc(50 + 400, 100 + 40, 20, Math.PI * 0.5, Math.PI * 1.5);
+    context.arc(100 + 400, 100 + 40, 20, Math.PI * 1.5, Math.PI * 0.5);
+    context.arc(75 + 400, 80 + 40, 20, Math.PI * 1.0, 0);
+    context.rect(50 + 400, 90 + 40, 50, 30);
+    context.stroke();
+    context.fillStyle = "white";
+    context.fill();
+
+    //haus Wand
+    context.fillRect(100, 150, 200, 150);
+
+    //Dach
+    context.beginPath();
+    context.moveTo(100, 150);
+    context.lineTo(300, 150);
+    context.lineTo(200, 50);
+    context.closePath();
+    context.stroke();
+    context.fillStyle = "red";
+    context.fill();
+
+    //Baumstamm
+    context.fillStyle = "brown";
+    context.fillRect(350, 180, 20, 150);
+    //Tür
+    context.fillRect(120, 220, 40, 80);
+    //Fenster
+    context.fillStyle = "blue";
+    context.fillRect(200, 220, 40, 40);
+
+    //Baumkrone
+    context.beginPath();
+    context.arc(360, 180, 50, 0, Math.PI * 2)
+    context.stroke();
+    context.fillStyle = "green";
+    context.fill();
+
+
+
     //b
+
+    let canvas2: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("mySecondCanvas");
+    let context2: CanvasRenderingContext2D = canvas2.getContext("2d");
+
     interface Rectangle {
         xPos: number;
         yPos: number;
@@ -204,40 +209,39 @@ namespace Aufgabe3 {
         recHeight: number;
     }
 
-    function generateRandomColor()
-{
-    var randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
-    return randomColor;
-    //random Color für die Rectangles
+    function generateRandomColor() {
+        var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        return randomColor;
+        //random Color für die Rectangles
 
-    
-}
-    
-    let rec1 = createRect(); //Erstellung eines zufälligen Rectangles
-    drawRect(rec1); //Rectangle wird gemalen
-    let rectArray: Rectangle[] = [createRect(),createRect(),createRect(),createRect(),createRect(),createRect()] //Array an zufälligen Rectangles wird erstellt
-    for(let num of rectArray){       
-        drawRect(num);  //jedes Rectangle im Array wird gezeichnet       
-      }
+
+    }
+
+    drawRect(createRect(6));
 
     //c
-    function createRect() {
-        let rec: Rectangle = {xPos: Math.floor(Math.random() * canvas.width) +1,yPos:Math.floor(Math.random() * canvas.height) +1,recWidth: Math.floor(Math.random() * canvas.width) + 1,recHeight:Math.floor(Math.random() * canvas.height) + 1};
-        return rec;
+    function createRect(anzahl: number): Rectangle[] {
+        let manyrecs: Rectangle[] = [];
+        for (let i: number = 0; i <= anzahl; i++) {
+            let rec: Rectangle = { xPos: Math.floor(Math.random() * canvas.width), yPos: Math.floor(Math.random() * canvas.height), recWidth: Math.floor(Math.random() * canvas.width) + 1, recHeight: Math.floor(Math.random() * canvas.height) + 1 };
+            manyrecs.push(rec);
+        }
+        return manyrecs;
     }
 
     //d
 
-    function drawRect(rec: Rectangle){
-        context.fillStyle = generateRandomColor();
-        context.fillRect(rec.xPos,rec.yPos,rec.recWidth,rec.recHeight);
+    function drawRect(rec: Rectangle[]) {
+        for (let key in rec) {
+            context2.fillStyle = generateRandomColor();
+            context2.fillRect(rec[key].xPos, rec[key].yPos, rec[key].recWidth, rec[key].recHeight);
+        }
     }
 
+    //f
+    setInterval(function () { context2.clearRect(0, 0, canvas2.width, canvas2.height), drawRect(createRect(5)) }, 1000);
+
+
+
 }
-
-
-
-
-
-
 
