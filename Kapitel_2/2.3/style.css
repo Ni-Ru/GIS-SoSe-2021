@@ -4,63 +4,38 @@
 
 html,body{
     height:100%;
-    background-image: url(bg1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url(bg3.jpg);
 }
 
 #choice{
     display: flex;
-    flex-direction: row;
     place-content: center;
     align-items: center;
     width:100%;
     height:100%;
 }
 
-.choicepart{
+#header{
     display: flex;
     place-content: center;
     align-items: center;
-    height:99%;
     width:30%;
     margin: 10px;
-}
-
-#middle{
     height: 30%;
     position: absolute;
     top:0;
     border-radius: 30px;
     border: none;
     background-color: rgb(255, 206, 149);
-}
-
-#middle>p{
     text-align: center;
     font-size:xxx-large;
     font-family: Verdana;
 }
 
-#left{
-    flex-direction: column;
-    position: absolute;
-    left:20px;
-}
-
-#left>div, #right>div{
-    display:flex;
-    flex-direction:column;
-    place-content: center;
-    align-items: center;
-    height:50%;
-    width: 100%;
-}
-
-#right{
-    flex-direction: column;
-    position: absolute;
-    right:20px;
+#selection{
+   display: flex;
+   flex-direction: row;
+   margin-top: 100px;
 }
 
 .pic{
@@ -70,9 +45,26 @@ html,body{
     margin-bottom: 20px;
 }
 
+#selection>div{
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+    place-content: center;
+    align-items: center;
+}
+
+#selection>div>img{
+    width:350px;
+    height: 175px;
+    margin-bottom: 10px;
+}
+
 .choose{
     width:50%;
-    height:10%;
+    height:30px;
     border:3px solid rgb(255, 206, 149);
     border-radius: 30px;
     background-color: rgba(255, 205, 149, 0);
