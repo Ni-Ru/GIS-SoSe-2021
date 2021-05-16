@@ -1,28 +1,5 @@
-namespace KlappBuch{
-
-
-    export interface Part {
-        part: string;
-        imageUrl: string;
-    }
-
-    export interface PartCollection{
-        blossoms: Part[];
-        stems: Part[];
-        vase: Part[];
-    }
-
-    export interface FinalPlant {
-        blossom: Part;
-        stem: Part;
-        vase: Part;
-    }
-
-    export let saveVariable: FinalPlant = {
-        blossom: null,
-        stem: null,
-        vase: null,
-    }
+namespace KlappBuch2_4{
+   
 
     export let partData: PartCollection = {
         blossoms:[
@@ -41,4 +18,14 @@ namespace KlappBuch{
             {part: "daisy", imageUrl:"daisyvase.png"}
         ]
     }
+
+    //Variable in der Ausgewählte Teile gespeichert werden
+    export let chosen: FinalPlant ={
+        blossom:{part: localStorage.getItem("blossomPlant"),imageUrl: localStorage.getItem("blossomImg")},
+        stem:{part: localStorage.getItem("stemPlant"),imageUrl: localStorage.getItem("stemImg")},
+        vase:{part: localStorage.getItem("vasePlant"),imageUrl: localStorage.getItem("vaseImg")},
+    } 
+
+    //1a) Variable wird in JSON string konvertiert --> in finalMain ist die funktion mit der man es zurück konvertiert.
+    export let plantJSON: string = JSON.stringify(chosen)
 }

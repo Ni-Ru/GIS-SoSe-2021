@@ -1,21 +1,26 @@
 "use strict";
 var KlappBuch;
 (function (KlappBuch) {
+    KlappBuch.saveVariable = {
+        blossom: null,
+        stem: null,
+        vase: null,
+    };
     KlappBuch.partData = {
         blossoms: [
             { part: "rose", imageUrl: "roseblossom.png" },
             { part: "orchid", imageUrl: "orchidblossom.png" },
-            { part: "tulip", imageUrl: "tulipblossom.png" }
+            { part: "daisy", imageUrl: "daisyblossom.png" }
         ],
         stems: [
             { part: "rose", imageUrl: "rosestem.png" },
             { part: "orchid", imageUrl: "orchidstem.png" },
-            { part: "tulip", imageUrl: "tulipstem.png" }
+            { part: "daisy", imageUrl: "daisystem.png" }
         ],
         vase: [
             { part: "rose", imageUrl: "rosevase.png" },
             { part: "orchid", imageUrl: "orchidvase.png" },
-            { part: "tulip", imageUrl: "tulipvase.png" }
+            { part: "daisy", imageUrl: "daisyvase.png" }
         ]
     };
 })(KlappBuch || (KlappBuch = {}));

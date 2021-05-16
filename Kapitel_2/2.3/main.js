@@ -18,7 +18,8 @@ var KlappBuch;
         button.innerHTML = "select";
         button.addEventListener("click", event);
         function event(_e) {
-            console.log(_part);
+            KlappBuch.saveVariable.blossom = _part;
+            console.log(KlappBuch.saveVariable);
         }
     }
     for (let i = 0; i < KlappBuch.partData.blossoms.length; i++) {

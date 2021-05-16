@@ -22,7 +22,8 @@ function createDiv(_part: Part):void{
     button.addEventListener("click", event)
 
     function event(_e: Event): void{
-        console.log(_part);
+        saveVariable.blossom = _part;
+        console.log(saveVariable);
     }
 }
 
