@@ -37,9 +37,9 @@ html,body{
     align-items: center;
     width:30%;
     margin: 10px;
-    height: 30%;
+    height: 20%;
     position: absolute;
-    top:0;
+    top:1%;
     border-radius: 30px;
     border: none;
     background-color: rgb(255, 206, 149);
@@ -52,8 +52,15 @@ html,body{
    display: flex;
    position: absolute;
    flex-direction: row;
-   top: 20%; 
+   top: 8%; 
    margin-top: 100px;
+}
+
+#selected{
+    display: flex;
+    position: absolute;
+    top: 1%;
+    left: 0%;
 }
 
 #final{

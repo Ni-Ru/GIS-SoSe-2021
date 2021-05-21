@@ -1,10 +1,13 @@
 namespace KlappBuch2_4 {
 
 // Funktion mit der JSON string zurück in eine Instanz gewandelt wird
-
+export function convertFinal (_plant: string): FinalPlant{
+    let plant: FinalPlant = JSON.parse(_plant);
+    return plant;
+}
 
     // Es wird eine Instanz von dem Objekt FinalPlant erstellt, mithilfe des Json strings
-    let finalFlower: FinalPlant = convert(plantJSON);
+    export let finalFlower: FinalPlant = convertFinal(plantJSON);
 
 
     //Aufgabe 2

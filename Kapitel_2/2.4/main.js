@@ -1,15 +1,10 @@
 "use strict";
 var KlappBuch2_4;
 (function (KlappBuch2_4) {
+    //Funktion um JSON in eine Objekt von PartCollection zu verwandeln
     function convert(_plant) {
-        if (_plant == KlappBuch2_4.plantJSON) {
-            let plant = JSON.parse(_plant);
-            return plant;
-        }
-        if (_plant == KlappBuch2_4.dataJSON) {
-            let allData = JSON.parse(_plant);
-            return allData;
-        }
+        let allData = JSON.parse(_plant);
+        return allData;
     }
     KlappBuch2_4.convert = convert;
     let data = convert(KlappBuch2_4.dataJSON);

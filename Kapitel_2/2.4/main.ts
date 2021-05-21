@@ -1,15 +1,10 @@
 namespace KlappBuch2_4 {
 
-
-    export function convert(_plant: string): any{
-        if (_plant == plantJSON){
-            let plant: FinalPlant = JSON.parse(_plant);
-            return plant;
-        }
-        if(_plant == dataJSON){
+//Funktion um JSON in eine Objekt von PartCollection zu verwandeln
+    export function convert(_plant: string): PartCollection{
             let allData: PartCollection = JSON.parse(_plant);
             return allData;
-        }
+        
     }
 
     let data: PartCollection = convert(dataJSON);
