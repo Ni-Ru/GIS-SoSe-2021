@@ -25,6 +25,9 @@ var KlappBuch2_4;
         vase: { part: localStorage.getItem("vasePlant"), imageUrl: localStorage.getItem("vaseImg") },
     };
     //1a) Variable wird in JSON string konvertiert --> in finalMain ist die funktion mit der man es zurück konvertiert.
+    //PartCollection
+    KlappBuch2_4.dataJSON = JSON.stringify(KlappBuch2_4.partData);
+    //FinalPlant
     KlappBuch2_4.plantJSON = JSON.stringify(KlappBuch2_4.chosen);
 })(KlappBuch2_4 || (KlappBuch2_4 = {}));
 //# sourceMappingURL=data.js.map

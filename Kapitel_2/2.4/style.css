@@ -52,7 +52,7 @@ html,body{
    display: flex;
    position: absolute;
    flex-direction: row;
-   top: 100px; 
+   top: 20%; 
    margin-top: 100px;
 }
 

@@ -1,7 +1,19 @@
 "use strict";
 var KlappBuch2_4;
 (function (KlappBuch2_4) {
-    let partHolder = KlappBuch2_4.partData.blossoms;
+    function convert(_plant) {
+        if (_plant == KlappBuch2_4.plantJSON) {
+            let plant = JSON.parse(_plant);
+            return plant;
+        }
+        if (_plant == KlappBuch2_4.dataJSON) {
+            let allData = JSON.parse(_plant);
+            return allData;
+        }
+    }
+    KlappBuch2_4.convert = convert;
+    let data = convert(KlappBuch2_4.dataJSON);
+    let partHolder = data.blossoms;
     let step = 1;
     // Ein Div Container in dem die getroffene Auswahl später gezeigt wird
     let chosenOptions = document.createElement("div");
@@ -54,11 +66,11 @@ var KlappBuch2_4;
     }
     function partChanger() {
         if (step == 2) {
-            partHolder = KlappBuch2_4.partData.stems;
+            partHolder = data.stems;
             console.log(partHolder);
         }
         if (step == 3) {
-            partHolder = KlappBuch2_4.partData.vase;
+            partHolder = data.vase;
         }
     }
     function showOptions(whatPart) {

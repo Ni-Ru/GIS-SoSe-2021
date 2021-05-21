@@ -27,5 +27,8 @@ namespace KlappBuch2_4{
     } 
 
     //1a) Variable wird in JSON string konvertiert --> in finalMain ist die funktion mit der man es zurück konvertiert.
-    export let plantJSON: string = JSON.stringify(chosen)
+    //PartCollection
+    export let dataJSON : string = JSON.stringify(partData);
+    //FinalPlant
+    export let plantJSON: string = JSON.stringify(chosen);
 }
