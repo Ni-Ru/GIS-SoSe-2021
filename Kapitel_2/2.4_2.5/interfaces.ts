@@ -9,10 +9,9 @@ namespace KlappBuch2_4 {
         stems: Part[];
         vase: Part[];
     }
-
-    export interface FinalPlant {
-        blossom: Part;
-        stem: Part;
-        vase: Part;
+    
+    export interface Server {
+        message?: string;
+        error?: string;
     }
 }

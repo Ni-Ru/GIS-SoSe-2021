@@ -1,16 +1,12 @@
 namespace KlappBuch2_4 {
 
-//Funktion um JSON in eine Objekt von PartCollection zu verwandeln
-    export function convert(_plant: string): PartCollection{
-            let allData: PartCollection = JSON.parse(_plant);
-            return allData;
+    //Funktion um JSON zu laden
+    async function loadJson(_url: RequestInfo): Promise<void> {
+        let response: Response = await fetch(_url);
+        let data: PartCollection = await response.json();
         
-    }
-
-    let data: PartCollection = convert(dataJSON);
-
-    let partHolder: Part[] = data.blossoms;
-    let step: number = 1;
+    
+    console.log(data);
 
     // Ein Div Container in dem die getroffene Auswahl später gezeigt wird
     let chosenOptions: HTMLDivElement = document.createElement("div");
@@ -32,6 +28,8 @@ namespace KlappBuch2_4 {
         button.innerHTML = "select";
         button.addEventListener("click", event)
 
+
+
         function event(_e: Event): void {
             //Aufgabe 1b)
             //Daten werden mit localStorage gespeichert
@@ -44,8 +42,8 @@ namespace KlappBuch2_4 {
             } if (step == 3) {
                 localStorage.setItem("vasePlant", _part.part)
                 localStorage.setItem("vaseImg", _part.imageUrl)
-                location.href = "finalFlower.html"; 
-                
+                location.href = "finalFlower.html";
+
             }
 
             //Aufgabe 1c)
@@ -55,6 +53,7 @@ namespace KlappBuch2_4 {
             //Partchanger sorgt dafür, dass die nächste Auswahl angezeigt wird
             partChanger();
             // die nächste Auswahl wird angezeigt mit partChanger als parameter
+
             showOptions(partHolder);
 
             //Aufgabe 1d)
@@ -62,6 +61,13 @@ namespace KlappBuch2_4 {
             let imgChosen: HTMLImageElement = document.createElement("img");
             imgChosen.src = _part.imageUrl;
             chosenOptions.appendChild(imgChosen);
+        }
+    }
+
+    function showOptions(whatPart: Part[]): void {
+
+        for (let i = 0; i < 3; i++) {
+            createDiv(whatPart[i])
         }
     }
 
@@ -75,16 +81,17 @@ namespace KlappBuch2_4 {
         }
     }
 
-    function showOptions(whatPart: Part[]): void {
 
-        for (let i = 0; i < whatPart.length; i++) {
-            createDiv(whatPart[i])
-        }
+    let partHolder: Part[];
+    let step: number;
+
+     function start(): void {
+        partHolder = data.blossoms
+        step = 1;
+        showOptions(partHolder);
     }
-
-
-
-    showOptions(partHolder);
-
+    start();
+    }
+    loadJson("data.json");
 
 }
