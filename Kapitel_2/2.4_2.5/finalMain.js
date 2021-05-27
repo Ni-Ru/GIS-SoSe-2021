@@ -5,8 +5,9 @@ var KlappBuch2_4;
         let url = "https://gis-communication.herokuapp.com";
         let query = new URLSearchParams(localStorage);
         url = url + "?" + query.toString();
-        let response = fetch("https://gis-communication.herokuapp.com");
-        let answer = await (await response).json();
+        await fetch(url);
+        let response = await fetch(url);
+        let answer = await response.json();
         if (answer.message) {
             document.getElementById("msg").textContent = answer.message;
             document.getElementById("msg").style.color = "green";

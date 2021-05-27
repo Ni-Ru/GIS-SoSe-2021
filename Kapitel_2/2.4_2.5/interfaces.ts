@@ -11,7 +11,6 @@ namespace KlappBuch2_4 {
     }
     
     export interface Server {
-        message?: string;
-        error?: string;
+        [key: string]: string;
     }
 }

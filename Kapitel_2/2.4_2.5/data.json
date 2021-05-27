@@ -1,5 +1,5 @@
-{ //a)
-    "blossoms": [
+  {
+  "blossoms" : [
         {
             "part": "rose",
             "imageUrl": "roseblossom.png"

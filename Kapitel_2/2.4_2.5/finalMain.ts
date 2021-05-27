@@ -5,11 +5,12 @@ async function sendData(): Promise<void> {
     let url: string = "https://gis-communication.herokuapp.com";
     let query: URLSearchParams = new URLSearchParams(localStorage);
     url = url + "?" + query.toString();
-    let response: Promise<Response> = fetch("https://gis-communication.herokuapp.com");
-    let answer: Server = await (await response).json();
+    await fetch (url);
+    let response: Response = await fetch(url);
+    let answer: Server = await response.json();
 
     if (answer.message) {
-        document.getElementById("msg").textContent = answer.message;
+        document.getElementById("msg").textContent =  answer.message;
         document.getElementById("msg").style.color = "green";
         document.getElementById("msg").style.borderColor = "green";
     }
