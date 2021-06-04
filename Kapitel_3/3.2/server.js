@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.P_3_1Server = void 0;
 const Http = require("http");
+const Url = require("url");
 var P_3_1Server;
 (function (P_3_1Server) {
     //Server startet -> wird auf der Konsole angezeigt
@@ -28,8 +29,18 @@ var P_3_1Server;
         //response wird erstellt
         _response.setHeader("content-type", "text/html; charset=utf-8"); //Textsprache wird eingestellt
         _response.setHeader("Access-Control-Allow-Origin", "*"); //Jeder kann Anfragen an den Server schicken
-        //Inhalt der Response:
-        _response.write(_request.url);
+        let url = Url.parse(_request.url, true);
+        if (url.pathname == "/html") {
+            for (let key in url.query) {
+                console.log(key + ": " + url.query[key]);
+                _response.write(key + ": " + url.query[key]);
+            }
+        }
+        if (url.pathname == "/json") {
+            let jsonString = JSON.stringify(url.query);
+            console.log("hallo");
+            _response.write(jsonString + "hallo");
+        }
         //Um den query/path auch auf der Konsole des Servers auszugeben:
         console.log(_request.url);
         //Ende der Response:
