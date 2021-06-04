@@ -38,8 +38,7 @@ var P_3_1Server;
         }
         if (url.pathname == "/json") {
             let jsonString = JSON.stringify(url.query);
-            console.log("hallo");
-            _response.write(jsonString + "hallo");
+            _response.write(jsonString);
         }
         //Um den query/path auch auf der Konsole des Servers auszugeben:
         console.log(_request.url);

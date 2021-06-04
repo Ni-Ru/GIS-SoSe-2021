@@ -34,14 +34,13 @@ export namespace P_3_1Server {
         let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
         if(url.pathname=="/html"){
             for (let key in url.query){
-                console.log(key + ": " + url.query[key]);
-                _response.write(key + ": " + url.query[key]);
+                console.log(key + ": " + url.query[key]+" ");
+                _response.write(key + ": " + url.query[key]+" ");
             }
         }
         if(url.pathname == "/json"){
             let jsonString: string = JSON.stringify(url.query);
-            console.log("hallo");
-            _response.write(jsonString +"hallo");
+            _response.write(jsonString);
         }
         //Um den query/path auch auf der Konsole des Servers auszugeben:
         console.log(_request.url);
