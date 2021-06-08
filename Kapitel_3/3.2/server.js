@@ -32,7 +32,7 @@ var P_3_1Server;
             _response.setHeader("Access-Control-Allow-Origin", "*"); //Jeder kann Anfragen an den Server schicken
             for (let key in url.query) {
                 console.log(key + ": " + url.query[key] + " ");
-                _response.write(key + ": " + url.query[key] + "\n");
+                _response.write(key + ": " + url.query[key] + "<br/>");
             }
         }
         if (url.pathname == "/json") {
