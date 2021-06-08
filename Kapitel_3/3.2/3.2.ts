@@ -1,5 +1,6 @@
 namespace Aufgabe3_2{
     let jsonOrHtml: boolean = true;
+    console.log("hi");
 
     let submissionHTML: HTMLButtonElement =<HTMLButtonElement> document.getElementById("subHTML");
     submissionHTML.addEventListener("click", function(){
@@ -25,13 +26,17 @@ namespace Aufgabe3_2{
         }
         
         let serverResponse: Response = await fetch(url);
-        let answerJSON: JSON = await serverResponse.json(); 
-        let answerHTML: string = await serverResponse.text()
+        let answerJSON: JSON;
+        let answerHTML: string;
         if(jsonOrHtml==true){
-        console.log(answerHTML);
-        document.getElementById("answer").innerHTML=answerHTML;
+            answerHTML = await serverResponse.text();
+            let textHTML: HTMLParagraphElement = document.createElement("p");
+            console.log(answerHTML);
+            textHTML.innerHTML = answerHTML;
+            document.getElementById("answer").appendChild(textHTML);
         }
         if(jsonOrHtml==false){
+            answerJSON = await serverResponse.json();
             console.log(answerJSON);
         }
     }
