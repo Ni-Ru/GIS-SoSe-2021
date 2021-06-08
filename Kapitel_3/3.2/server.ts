@@ -27,18 +27,19 @@ export namespace P_3_1Server {
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
         //erhält der Server Anfragen von Benutzern, gibt er folgendes aus:
         console.log("I hear voices!");
-        //response wird erstellt
-        _response.setHeader("content-type", "text/html; charset=utf-8"); //Textsprache wird eingestellt
-        _response.setHeader("Access-Control-Allow-Origin", "*"); //Jeder kann Anfragen an den Server schicken
 
         let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
         if(url.pathname=="/html"){
+            _response.setHeader("content-type", "text/html; charset=utf-8"); //Textsprache wird eingestellt
+            _response.setHeader("Access-Control-Allow-Origin", "*"); //Jeder kann Anfragen an den Server schicken
             for (let key in url.query){
                 console.log(key + ": " + url.query[key]+" ");
                 _response.write(key + ": " + url.query[key]+" ");
             }
         }
         if(url.pathname == "/json"){
+            _response.setHeader("content-type", "text/json; charset=utf-8"); //Textsprache wird eingestellt
+            _response.setHeader("Access-Control-Allow-Origin", "*"); //Jeder kann Anfragen an den Server schicken
             let jsonString: string = JSON.stringify(url.query);
             _response.write(jsonString);
         }

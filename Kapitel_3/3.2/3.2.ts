@@ -21,12 +21,19 @@ namespace Aufgabe3_2{
             url = url + "/html" + "?" + query.toString();
         }
         if(jsonOrHtml==false){
-            url = url + "/json" + "?" + query.toString();  
+            url = url + "/json" + "?" + query.toString();
         }
+        
         let serverResponse: Response = await fetch(url);
-        let answer: string = await serverResponse.text();
-        console.log(answer);
-        document.getElementById("answer").innerHTML=answer;
+        let answerJSON: JSON = await serverResponse.json(); 
+        let answerHTML: string = await serverResponse.text()
+        if(jsonOrHtml==true){
+        console.log(answerHTML);
+        document.getElementById("answer").innerHTML=answerHTML;
+        }
+        if(jsonOrHtml==false){
+            console.log(answerJSON);
+        }
     }
 
 }
