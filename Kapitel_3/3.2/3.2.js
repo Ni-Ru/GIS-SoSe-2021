@@ -2,7 +2,6 @@
 var Aufgabe3_2;
 (function (Aufgabe3_2) {
     let jsonOrHtml = true;
-    console.log("hi");
     let submissionHTML = document.getElementById("subHTML");
     submissionHTML.addEventListener("click", function () {
         jsonOrHtml = true;
@@ -30,11 +29,13 @@ var Aufgabe3_2;
             answerHTML = await serverResponse.text();
             let textHTML = document.createElement("p");
             console.log(answerHTML);
+            document.getElementById("answer").innerHTML = " ";
             textHTML.innerHTML = answerHTML;
             document.getElementById("answer").appendChild(textHTML);
         }
         if (jsonOrHtml == false) {
             answerJSON = await serverResponse.json();
+            document.getElementById("answer").innerHTML = " ";
             console.log(answerJSON);
         }
     }
