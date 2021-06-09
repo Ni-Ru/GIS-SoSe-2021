@@ -38,7 +38,7 @@ export namespace P_3_1Server {
             }
         }
         if(url.pathname == "/json"){
-            _response.setHeader("content-type", "text/json; charset=utf-8"); //Textsprache wird eingestellt
+            _response.setHeader("content-type", "application/json"); //Textsprache wird eingestellt
             _response.setHeader("Access-Control-Allow-Origin", "*"); //Jeder kann Anfragen an den Server schicken
             let jsonString: string = JSON.stringify(url.query);
             _response.write(jsonString);
