@@ -34,7 +34,7 @@ export namespace P_3_1Server {
             _response.setHeader("Access-Control-Allow-Origin", "*"); //Jeder kann Anfragen an den Server schicken
             for (let key in url.query){
                 console.log(key + ": " + url.query[key]+" ");
-                _response.write(key + ": " + url.query[key] + "<br/>");
+                _response.write("<p>"+key + ": " + url.query[key] + "</p>");
             }
         }
         if(url.pathname == "/json"){

@@ -29,11 +29,8 @@ namespace Aufgabe3_2{
         let answerHTML: string;
         if(jsonOrHtml==true){
             answerHTML = await serverResponse.text();
-            let textHTML: HTMLParagraphElement = document.createElement("p");
             console.log(answerHTML);
-            document.getElementById("answer").innerHTML="";
-            textHTML.innerHTML = answerHTML;
-            document.getElementById("answer").appendChild(textHTML);
+            document.getElementById("answer").innerHTML= answerHTML;
         }
         if(jsonOrHtml==false){
             answerJSON = await serverResponse.json();
