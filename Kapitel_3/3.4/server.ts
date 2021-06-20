@@ -5,11 +5,11 @@ import * as Mongo from "mongodb";
 export namespace a3_4 {
 
     let collection: Mongo.Collection;
-    let databaseURL: string = "mongodb+srv://NiRu:<password>@nic-ru-gis.3j5ob.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let databaseURL: string = "mongodb+srv://GISuser:cgZPmAa5YVO41v8l@nic-ru-gis.3j5ob.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     let port: number = Number(process.env.PORT);
     if (!port)
         port = 8100;
-
+       
     startServer(port);
     connectToDatabase(databaseURL);
 
