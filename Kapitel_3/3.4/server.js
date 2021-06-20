@@ -34,7 +34,7 @@ var a3_4;
         console.log("I hear voices!");
         console.log("Request URL", _request.url);
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        let q = new URL(_request.url, "https://gissose2021soren.herokuapp.com/");
+        let q = new URL(_request.url, "https://gissose2021nicrubner.herokuapp.com/");
         let qdata = { firstname: q.searchParams.get("firstname"), lastname: q.searchParams.get("lastname"), email: q.searchParams.get("email") };
         if (q.pathname == "/add") {
             collection.insertOne(qdata);
