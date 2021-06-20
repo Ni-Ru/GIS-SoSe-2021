@@ -1,0 +1,21 @@
+
+form{
+    margin-top: 200px;
+    margin-left: 35%;
+}
+input{
+    margin: 10px;
+}
+
+#inputs{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: px;
+}
+
+button{
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
