@@ -13,8 +13,6 @@ namespace a3_4 {
     async function handleSubmit(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
         let url: RequestInfo = "https://gissose2021nicrubner.herokuapp.com";
-        //let url: RequestInfo = "http://localhost:8100";
-        // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url += path + "?" + query.toString();  
         let response: Response = await fetch(url, { method: "get"});
@@ -29,8 +27,8 @@ namespace a3_4 {
                 let temp: HTMLDivElement = <HTMLDivElement>document.createElement("div");
                 temp.className = "databaseEntry";
                 temp.innerHTML = "id: " + responseJSON[i]._id + 
-                                 "<br> firstname: " + responseJSON[i].firstname +
-                                 "<br> lastname: " + responseJSON[i].lastname +
+                                 "<br> firstname: " + responseJSON[i].vorname +
+                                 "<br> lastname: " + responseJSON[i].nachname +
                                  "<br> email: " + responseJSON[i].email + "<br>";
 
                 let tempDelete: HTMLButtonElement = <HTMLButtonElement> document.createElement("button");
@@ -57,8 +55,8 @@ namespace a3_4 {
     }
 
     interface FormElements {
-        firstname: string;
-        lastname: string;
+        vorname: string;
+        nachname: string;
         email: string;
     }
 

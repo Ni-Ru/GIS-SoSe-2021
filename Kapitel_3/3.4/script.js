@@ -14,8 +14,6 @@ var a3_4;
     async function handleSubmit() {
         let formData = new FormData(document.forms[0]);
         let url = "https://gissose2021nicrubner.herokuapp.com";
-        //let url: RequestInfo = "http://localhost:8100";
-        // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         url += path + "?" + query.toString();
         let response = await fetch(url, { method: "get" });
@@ -28,8 +26,8 @@ var a3_4;
                 let temp = document.createElement("div");
                 temp.className = "databaseEntry";
                 temp.innerHTML = "id: " + responseJSON[i]._id +
-                    "<br> firstname: " + responseJSON[i].firstname +
-                    "<br> lastname: " + responseJSON[i].lastname +
+                    "<br> firstname: " + responseJSON[i].vorname +
+                    "<br> lastname: " + responseJSON[i].nachname +
                     "<br> email: " + responseJSON[i].email + "<br>";
                 let tempDelete = document.createElement("button");
                 tempDelete.className = "deleteBtn";
