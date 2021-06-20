@@ -2,7 +2,7 @@
 var a3_4;
 (function (a3_4) {
     let path;
-    let responseDiv = document.getElementById("response");
+    let answer = document.getElementById("answer");
     document.getElementById("send").addEventListener("click", function () {
         path = "/add";
         handleSubmit();
@@ -21,7 +21,7 @@ var a3_4;
         let response = await fetch(url, { method: "get" });
         let responseText = await response.text();
         if (path == "/retrive") {
-            responseDiv.innerHTML = "";
+            answer.innerHTML = "";
             console.log("Retrieved JSON", JSON.parse(responseText));
             let responseJSON = JSON.parse(responseText);
             for (let i = 0; i < responseJSON.length; i++) {
@@ -39,7 +39,7 @@ var a3_4;
                 });
                 tempDelete.appendChild(document.createTextNode("Delete"));
                 temp.appendChild(tempDelete);
-                responseDiv.appendChild(temp);
+                answer.appendChild(temp);
             }
         }
         else if (path == "/add") {
@@ -50,7 +50,7 @@ var a3_4;
         }
     }
     function showResponse(text) {
-        responseDiv.innerHTML = text;
+        answer.innerHTML = text;
     }
 })(a3_4 || (a3_4 = {}));
 //# sourceMappingURL=script.js.map

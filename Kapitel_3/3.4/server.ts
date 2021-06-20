@@ -5,7 +5,7 @@ import * as Mongo from "mongodb";
 export namespace a3_4 {
 
     let collection: Mongo.Collection;
-    let databaseURL: string = "mongodb+srv://admin:GxyVgPpJpaJI3rL3@clusterzero.oy0md.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let databaseURL: string = "mongodb+srv://nic-ru-gis.3j5ob.mongodb.net/myFirstDatabase--username NiRu";
     let port: number = Number(process.env.PORT);
     if (!port)
         port = 8100;

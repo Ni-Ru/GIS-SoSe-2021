@@ -1,6 +1,6 @@
 namespace a3_4 {
     let path: string;
-    let responseDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("response");
+    let answer: HTMLDivElement = <HTMLDivElement>document.getElementById("answer");
     document.getElementById("send").addEventListener("click", function(): void {
         path = "/add";
         handleSubmit(); 
@@ -21,7 +21,7 @@ namespace a3_4 {
         let responseText: string = await response.text();
 
         if (path == "/retrive")  {
-            responseDiv.innerHTML = "";
+            answer.innerHTML = "";
             console.log("Retrieved JSON", JSON.parse(responseText));
             let responseJSON: CollectionData[] = JSON.parse(responseText);
 
@@ -42,7 +42,7 @@ namespace a3_4 {
 
                 tempDelete.appendChild(document.createTextNode("Delete"));
                 temp.appendChild(tempDelete);
-                responseDiv.appendChild(temp);
+                answer.appendChild(temp);
             }
         } else if (path == "/add") {
             console.log(responseText);
@@ -53,7 +53,7 @@ namespace a3_4 {
     }
 
     function showResponse(text: string): void {
-        responseDiv.innerHTML = text;
+        answer.innerHTML = text;
     }
 
     interface FormElements {
