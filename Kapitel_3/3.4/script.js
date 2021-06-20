@@ -45,7 +45,7 @@ var a3_4;
         else if (path == "/add") {
             console.log(responseText);
             showResponse(responseText);
-            let form = document.getElementById("formDiv");
+            let form = document.getElementById("forms");
             form.reset();
         }
     }

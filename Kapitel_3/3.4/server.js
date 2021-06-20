@@ -6,7 +6,7 @@ const Mongo = require("mongodb");
 var a3_4;
 (function (a3_4) {
     let collection;
-    let databaseURL = "mongodb+srv://nic-ru-gis.3j5ob.mongodb.net/myFirstDatabase--username NiRu";
+    let databaseURL = "mongodb+srv://NiRu:<password>@nic-ru-gis.3j5ob.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;

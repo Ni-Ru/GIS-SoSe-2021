@@ -47,7 +47,7 @@ namespace a3_4 {
         } else if (path == "/add") {
             console.log(responseText);
             showResponse(responseText);
-            let form: HTMLFormElement = <HTMLFormElement>document.getElementById("formDiv");
+            let form: HTMLFormElement = <HTMLFormElement>document.getElementById("forms");
             form.reset();
         }    
     }
