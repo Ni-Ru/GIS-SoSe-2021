@@ -19,7 +19,7 @@ export namespace a3_4 {
         let options: Mongo.MongoClientOptions =  {useNewUrlParser: true, useUnifiedTopology: true};
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(url, options);
         await mongoClient.connect();
-        collection = mongoClient.db("Test").collection("UserData");
+        collection = mongoClient.db("Memory").collection("User");
         console.log("Database connection", collection != undefined);
     }
 

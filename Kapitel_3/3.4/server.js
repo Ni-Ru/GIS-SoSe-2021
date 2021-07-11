@@ -6,7 +6,8 @@ const Mongo = require("mongodb");
 var a3_4;
 (function (a3_4) {
     let collection;
-    let databaseURL = "mongodb+srv://GISuser:cgZPmAa5YVO41v8l@nic-ru-gis.3j5ob.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let databaseURL = "mongodb+srv://player:ididit@gis-exam.kngkp.mongodb.net/Memory?retryWrites=true&w=majority";
+    //"mongodb+srv://GISuser:cgZPmAa5YVO41v8l@nic-ru-gis.3j5ob.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
@@ -17,7 +18,7 @@ var a3_4;
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(url, options);
         await mongoClient.connect();
-        collection = mongoClient.db("Test").collection("UserData");
+        collection = mongoClient.db("Memory").collection("User");
         console.log("Database connection", collection != undefined);
     }
     function startServer(port) {
